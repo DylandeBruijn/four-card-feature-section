@@ -1,3 +1,123 @@
 @use "reset";
 @use "root";
 @use "base";
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__subtitle {
+    color: var(--clr-grayish-blue);
+    font-size: 2rem;
+    font-weight: 300;
+
+    @media screen and (min-width: 640px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__title {
+    color: var(--clr-very-dark-blue);
+    font-size: 2rem;
+    font-weight: 600;
+
+    @media screen and (min-width: 640px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__description {
+    color: var(--clr-grayish-blue);
+    font-size: 1.1rem;
+    max-width: 55ch;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "cyan-card"
+    "red-card"
+    "orange-card"
+    "blue-card";
+  gap: 2rem;
+  max-width: 1280px;
+
+  @media screen and (min-width: 640px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "cyan-card red-card"
+      "orange-card blue-card";
+  }
+
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      ". red-card ."
+      "cyan-card red-card blue-card"
+      "cyan-card orange-card blue-card"
+      ". orange-card .";
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  background-color: var(--clr-white);
+  overflow: hidden;
+  border-radius: 6px;
+  padding: 2rem;
+  box-shadow: 2px 8px 14px 0px hsla(229, 6%, 66%, 0.6);
+
+  &--cyan {
+    grid-area: cyan-card;
+    border-top: 6px solid var(--clr-cyan);
+  }
+
+  &--red {
+    grid-area: red-card;
+    border-top: 6px solid var(--clr-red);
+  }
+
+  &--orange {
+    grid-area: orange-card;
+    border-top: 6px solid var(--clr-orange);
+  }
+
+  &--blue {
+    grid-area: blue-card;
+    border-top: 6px solid var(--clr-blue);
+  }
+
+  &__title {
+    color: var(--clr-very-dark-blue);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__description {
+    color: var(--clr-grayish-blue);
+  }
+
+  &__image {
+    width: 64px;
+    align-self: end;
+  }
+}
